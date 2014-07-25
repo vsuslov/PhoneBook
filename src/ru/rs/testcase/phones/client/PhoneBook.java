@@ -1,6 +1,8 @@
 package ru.rs.testcase.phones.client;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -23,6 +25,17 @@ public class PhoneBook implements EntryPoint {
 		phoneBook.setText(0, 1, "Телефон");
 		phoneBook.setText(0, 2, "Действия");
 		phoneBook.setBorderWidth(2);
+		phoneBook.setCellPadding(5);
+
+		addRecord.addClickHandler(new ClickHandler() {
+
+			@Override
+			public void onClick(ClickEvent event) {
+				addContact();
+
+			}
+
+		});
 	}
 
 	/**
@@ -35,5 +48,9 @@ public class PhoneBook implements EntryPoint {
 		mainPanel.add(addRecord);
 
 		RootPanel.get("phoneList").add(mainPanel);
+	}
+
+	private void addContact() {
+		System.out.println("Adding stub");
 	}
 }
