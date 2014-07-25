@@ -1,0 +1,2 @@
+serviceClass: ru.rs.testcase.phones.client.GreetingService
+path: FADED33605A07FB8AE46B02A9ECDA975.gwt.rpc
