@@ -1,50 +1,50 @@
+
 package ru.rs.testcase.phones.model;
 
 public class Contact {
-	private final int id;
-	private String name;
-	private String phone;
 
-	public Contact(int id) {
-		super();
-		this.id = id;
-	}
+    private String name;
+    
+    private String phone;
 
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
+    public Contact(String name, String phone) {
+    
+        this.name = name;
+        this.phone = phone;
+    }
 
-	/**
-	 * @return the phone
-	 */
-	public String getPhone() {
-		return phone;
-	}
+    /**
+     * @return the name
+     */
+    public String getName() {
+    
+        return name;
+    }
 
-	/**
-	 * @return the id
-	 */
-	public int getId() {
-		return id;
-	}
+    /**
+     * @return the phone
+     */
+    public String getPhone() {
+    
+        return phone;
+    }
+    
+    /**
+     * @param name
+     *            the name to set
+     */
+    public void setName(String name) {
+    
+        this.name = name;
+    }
 
-	/**
-	 * @param name
-	 *            the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
-	 * @param phone
-	 *            the phone to set
-	 */
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+    /**
+     * @param phone
+     *            the phone to set
+     */
+    public void setPhone(String phone) {
+    
+        this.phone = phone;
+    }
 
 }
