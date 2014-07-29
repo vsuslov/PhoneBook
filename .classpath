@@ -2,7 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" output="test-classes" path="test"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/dns/Downloads/db-derby-10.10.2.0-bin/lib/derby.jar"/>
+	<classpathentry kind="lib" path="/Users/dns/Downloads/db-derby-10.10.2.0-bin/lib/derbyclient.jar"/>
+	<classpathentry kind="lib" path="/Users/dns/Downloads/db-derby-10.10.2.0-bin/lib/derbynet.jar"/>
+	<classpathentry kind="lib" path="/Users/dns/Downloads/db-derby-10.10.2.0-bin/lib/derbytools.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
