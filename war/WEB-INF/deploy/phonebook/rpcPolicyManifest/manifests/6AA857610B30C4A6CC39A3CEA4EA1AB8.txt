@@ -1,0 +1,2 @@
+serviceClass: ru.rs.testcase.phones.client.services.SimpleService
+path: BE0A9DBEF88A1174CAC4566F11D71FFB.gwt.rpc

@@ -2,6 +2,6 @@ package ru.rs.testcase.phones.client.presenters;
 
 import com.google.gwt.user.client.ui.HasWidgets;
 
-public abstract interface Presenter {
-	public abstract void go(final HasWidgets container);
+public interface Presenter {
+	public void go(HasWidgets container);
 }

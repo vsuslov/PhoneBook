@@ -21,7 +21,6 @@
 
     <!-- Specify the app entry point class. -->
     <entry-point class='ru.rs.testcase.phones.client.PhoneBook' />
-
     <!-- Specify the paths for translatable code -->
     <source path='client' />
     <source path='shared' />

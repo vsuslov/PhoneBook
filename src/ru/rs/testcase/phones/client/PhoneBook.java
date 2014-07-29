@@ -1,56 +1,21 @@
 package ru.rs.testcase.phones.client;
 
+import ru.rs.testcase.phones.client.services.SimpleService;
+import ru.rs.testcase.phones.client.services.SimpleServiceAsync;
+
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.core.shared.GWT;
+import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.VerticalPanel;
 
-/**
- * Entry point classes define <code>onModuleLoad()</code>.
- */
 public class PhoneBook implements EntryPoint {
-	private FlexTable phoneBook;
-	private Button addRecord;
-	private VerticalPanel mainPanel;
 
-	{
-		phoneBook = new FlexTable();
-		addRecord = new Button("Добавить запись");
-		mainPanel = new VerticalPanel();
-
-		phoneBook.setText(0, 0, "Имя");
-		phoneBook.setText(0, 1, "Телефон");
-		phoneBook.setText(0, 2, "Действия");
-		phoneBook.setBorderWidth(2);
-		phoneBook.setCellPadding(5);
-
-		addRecord.addClickHandler(new ClickHandler() {
-
-			@Override
-			public void onClick(ClickEvent event) {
-				addContact();
-
-			}
-
-		});
-	}
-
-	/**
-	 * This is the entry point method.
-	 */
 	@Override
 	public void onModuleLoad() {
-
-		mainPanel.add(phoneBook);
-		mainPanel.add(addRecord);
-
-		RootPanel.get("phoneList").add(mainPanel);
+		SimpleServiceAsync service = GWT.create(SimpleService.class);
+		HandlerManager bus = new HandlerManager(null);
+		AppController controller = new AppController(bus, service);
+		controller.go(RootPanel.get());
 	}
 
-	private void addContact() {
-		System.out.println("Adding stub");
-	}
 }
