@@ -45,8 +45,10 @@ public class JdbcHelper {
 				st.executeUpdate("CREATE TABLE PHONES (ID INT NOT NULL, NAME VARCHAR(20) NOT NULL, PHONE VARCHAR(11) NOT NULL, PRIMARY KEY (NAME,PHONE))");
 				System.out.println("Table created");
 				st.close();
-				c.commit();
+
 			}
+			c.commit();
+			rs.close();
 		} catch (SQLException e) {
 
 			System.err.println("Table was not created");
