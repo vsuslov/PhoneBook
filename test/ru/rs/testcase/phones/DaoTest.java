@@ -17,5 +17,10 @@ public class DaoTest {
 
 		System.out.println(contacts);
 
+		Contact c = new Contact("Alek Bolduen", "4567733");
+		dao.createContact(c);
+
+		System.out.println(dao.findAllContacts());
+
 	}
 }

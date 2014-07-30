@@ -49,4 +49,12 @@ public class Contact {
 		this.phone = phone;
 	}
 
+	/*
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Contact [name=" + name + ", phone=" + phone + "]";
+	}
+
 }

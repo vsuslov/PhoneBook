@@ -1,6 +1,7 @@
 package ru.rs.testcase.phones.server.data;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,7 +16,21 @@ public class ContactsDaoImpl implements ContactsDao {
 	@Override
 	public Contact createContact(Contact contact) {
 
-		// TODO Auto-generated method stub
+		try (Connection connect = helper.getConnection()) {
+			connect.setAutoCommit(false);
+			PreparedStatement st = connect
+					.prepareStatement("INSERT INTO PHONES(NAME,PHONE) VALUES(?,?)");
+			st.setString(1, contact.getName());
+			st.setString(2, contact.getPhone());
+			int rs = st.executeUpdate();
+			if (rs > 0) {
+				System.out.println("Contact is created");
+			}
+			connect.commit();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 

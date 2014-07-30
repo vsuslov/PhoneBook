@@ -23,6 +23,9 @@ public class JdbcHelper {
 		try {
 			connection = DriverManager
 					.getConnection("jdbc:derby:phonebook;create=true");
+			connection.setAutoCommit(false);
+			connection
+					.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
 		} catch (SQLException e) {
 			//
 		}
@@ -42,7 +45,7 @@ public class JdbcHelper {
 				System.out.println("Starting to create table");
 				Statement st = c.createStatement();
 				System.out.println("Starting to create table 2");
-				st.executeUpdate("CREATE TABLE PHONES (ID INT NOT NULL, NAME VARCHAR(20) NOT NULL, PHONE VARCHAR(11) NOT NULL, PRIMARY KEY (NAME,PHONE))");
+				st.executeUpdate("CREATE TABLE PHONES (ID INT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), NAME VARCHAR(20) NOT NULL, PHONE VARCHAR(11) NOT NULL, PRIMARY KEY (NAME,PHONE))");
 				System.out.println("Table created");
 				st.close();
 
