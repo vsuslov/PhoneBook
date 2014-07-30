@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Wed Jul 30 18:01:36 YEKT 2014:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-0147-8725-a218-000000bd3c40 
-on database directory D:\programming\WorkSpace\PhoneBook\phonebook with class loader sun.misc.Launcher$AppClassLoader@a298b7 
-Loaded from file:/D:/programming/WorkSpace/PhoneBook/lib/derby.jar
+Thu Jul 31 00:25:22 YEKT 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-0147-8884-fd45-00000423bf88 
+on database directory /Users/dns/git/PhoneBook/phonebook with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+Loaded from file:/Users/dns/git/PhoneBook/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0-b132
-user.dir=D:\programming\WorkSpace\PhoneBook
-os.name=Windows 7
-os.arch=x86
-os.version=6.1
+java.runtime.version=1.8.0_05-b13
+user.dir=/Users/dns/git/PhoneBook
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.9.4
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''

@@ -1,71 +1,113 @@
+
 package ru.rs.testcase.phones.client.views;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
 import ru.rs.testcase.phones.client.presenters.ContactsPresenter.Display;
-
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class ContactsView extends Composite implements Display {
 
-	private FlexTable contacts;
+    private FlexTable contacts;
 
-	private Button addButton;
+    private Button addButton;
 
-	private VerticalPanel mainPanel;
+    private Button filterButton;
+    
+    private TextBox searchField;
 
-	private HorizontalPanel menuPanel;
+    private VerticalPanel mainPanel;
 
-	public ContactsView() {
+    private HorizontalPanel searchPanel;
 
-		contacts = new FlexTable();
-		contacts.setText(0, 0, "Имя");
-		contacts.setText(0, 1, "Телефон");
-		contacts.setText(0, 2, "Действия");
-		contacts.setBorderWidth(2);
-		contacts.setCellPadding(5);
+    private List<HasClickHandlers> removeButtons;
 
-		addButton = new Button("Добавить контакт");
-		menuPanel = new HorizontalPanel();
-		menuPanel.add(addButton);
+    public ContactsView() {
 
-		mainPanel = new VerticalPanel();
-		mainPanel.add(menuPanel);
-		mainPanel.add(contacts);
+        contacts = new FlexTable();
+        contacts.setText(0, 0, "Имя");
+        contacts.setText(0, 1, "Телефон");
+        contacts.setText(0, 2, "Действия");
+        contacts.setBorderWidth(2);
+        contacts.setCellPadding(5);
+        
+        filterButton = new Button("Отфильтровать");
+        searchField = new TextBox();
+        addButton = new Button("Добавить контакт");
+        
+        searchPanel = new HorizontalPanel();
+        searchPanel.add(searchField);
+        searchPanel.add(filterButton);
 
-	}
+        mainPanel = new VerticalPanel();
+        mainPanel.add(searchPanel);
+        mainPanel.add(contacts);
+        mainPanel.add(addButton);
 
-	public HasClickHandlers getAddButton() {
+    }
 
-		// TODO Auto-generated method stub
-		return addButton;
-	}
+    public HasClickHandlers getAddButton() {
 
-	public HasClickHandlers getContactList() {
+        // TODO Auto-generated method stub
+        return addButton;
+    }
 
-		// TODO Auto-generated method stub
-		return contacts;
-	}
+    public HasClickHandlers getContactList() {
 
-	public void setContacts(Map<String, String> contacts) {
+        // TODO Auto-generated method stub
+        return contacts;
+    }
 
-		this.contacts.removeAllRows();
-		int i = 0;
-		for (Entry<String, String> e : contacts.entrySet()) {
-			this.contacts.setText(++i, 0, e.getKey());
-			this.contacts.setText(i, 1, e.getValue());
-		}
-	}
+    public void setContacts(Map<String, String> contacts) {
 
-	@Override
-	public HasClickHandlers getButton() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+        this.contacts.removeAllRows();
+        int i = 0;
+        for (Entry<String, String> e : contacts.entrySet()) {
+            this.contacts.setText(++i, 0, e.getKey());
+            this.contacts.setText(i, 1, e.getValue());
+        }
+    }
+
+    @Override
+    public HasClickHandlers addButton() {
+
+        // TODO Auto-generated method stub
+        return addButton;
+    }
+
+    @Override
+    public HasClickHandlers filterButton() {
+
+        // TODO Auto-generated method stub
+        return filterButton;
+    }
+
+    @Override
+    public List<HasClickHandlers> removeButton() {
+
+        // TODO Auto-generated method stub
+        return removeButtons;
+    }
+
+    @Override
+    public FlexTable table() {
+
+        // TODO Auto-generated method stub
+        return contacts;
+    }
+
+    @Override
+    public HasValue<String> searchField() {
+
+        // TODO Auto-generated method stub
+        return searchField;
+    }
 }
