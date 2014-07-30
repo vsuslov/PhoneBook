@@ -4,7 +4,7 @@ import ru.rs.testcase.phones.client.events.AlertEvent;
 import ru.rs.testcase.phones.client.events.AlertHandler;
 import ru.rs.testcase.phones.client.presenters.ContactsPresenter;
 import ru.rs.testcase.phones.client.presenters.Presenter;
-import ru.rs.testcase.phones.client.services.SimpleServiceAsync;
+import ru.rs.testcase.phones.client.services.ContactsServiceAsync;
 import ru.rs.testcase.phones.client.views.SimpleView;
 
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
@@ -17,9 +17,9 @@ import com.google.gwt.user.client.ui.HasWidgets;
 public class AppController implements Presenter, ValueChangeHandler<String> {
 	private HasWidgets container;
 	private HandlerManager eventBus;
-	private SimpleServiceAsync rpc;
+	private ContactsServiceAsync rpc;
 
-	public AppController(HandlerManager eventBus, SimpleServiceAsync rpc) {
+	public AppController(HandlerManager eventBus, ContactsServiceAsync rpc) {
 		super();
 		this.eventBus = eventBus;
 		this.rpc = rpc;

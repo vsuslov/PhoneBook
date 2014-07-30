@@ -12,41 +12,42 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 public class ContactsServiceImpl extends RemoteServiceServlet implements
 		ContactsService {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7201271346760595296L;
 	private ContactsDao dao = new ContactsDaoImpl();
 
 	@Override
 	public List<Contact> getContacts() {
 
-		// TODO Auto-generated method stub
-		return null;
+		return dao.findAllContacts();
 	}
 
 	@Override
 	public void createContact(Contact contact) {
 
-		// TODO Auto-generated method stub
+		dao.createContact(contact);
 
 	}
 
 	@Override
 	public List<Contact> filterBySubstring(String subString) {
 
-		// TODO Auto-generated method stub
-		return null;
+		return dao.findBySubstring(subString);
 	}
 
 	@Override
 	public void updateContact(Contact contact) {
 
-		// TODO Auto-generated method stub
+		dao.updateContact(contact);
 
 	}
 
 	@Override
 	public void removeContact(Contact contact) {
 
-		// TODO Auto-generated method stub
-
+		dao.removeContact(contact);
 	}
 
 }

@@ -1,7 +1,7 @@
 package ru.rs.testcase.phones.client;
 
-import ru.rs.testcase.phones.client.services.SimpleService;
-import ru.rs.testcase.phones.client.services.SimpleServiceAsync;
+import ru.rs.testcase.phones.client.services.ContactsService;
+import ru.rs.testcase.phones.client.services.ContactsServiceAsync;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.shared.GWT;
@@ -12,7 +12,7 @@ public class PhoneBook implements EntryPoint {
 
 	@Override
 	public void onModuleLoad() {
-		SimpleServiceAsync service = GWT.create(SimpleService.class);
+		ContactsServiceAsync service = GWT.create(ContactsService.class);
 		HandlerManager bus = new HandlerManager(null);
 		AppController controller = new AppController(bus, service);
 		controller.go(RootPanel.get());
