@@ -1,4 +1,3 @@
-
 package ru.rs.testcase.phones.client.presenters;
 
 import net.customware.gwt.dispatch.client.DispatchAsync;
@@ -11,6 +10,7 @@ import net.customware.gwt.presenter.client.widget.WidgetPresenter;
 import ru.rs.testcase.phones.client.command.SimpleAction;
 import ru.rs.testcase.phones.client.command.SimpleResult;
 import ru.rs.testcase.phones.client.events.AlertEvent;
+
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
@@ -18,106 +18,105 @@ import com.google.gwt.user.client.ui.Label;
 
 public class SimplePresenter extends WidgetPresenter<SimplePresenter.Display> {
 
-    private Display display;
-    
-    private DispatchAsync dispatcher;
-    
-    public interface Display extends WidgetDisplay {
+	private Display display;
 
-        HasClickHandlers goButton();
-        
-        Label text();
+	private DispatchAsync dispatcher;
 
-    }
-    
-    public static final Place PLACE = new Place("Simple");
-    
-    public SimplePresenter(Display display, EventBus eventBus) {
-    
-        super(display, eventBus);
-        // TODO Auto-generated constructor stub
-    }
+	public interface Display extends WidgetDisplay {
 
-    public SimplePresenter(DispatchAsync dispatcher, Display display,
-            EventBus eventBus)
-    {
+		HasClickHandlers goButton();
 
-        super(display, eventBus);
-        this.dispatcher = dispatcher;
+		Label text();
 
-        bind();
-    }
+	}
 
-    public void doGO() {
+	public static final Place PLACE = new Place("Simple");
 
-        dispatcher.execute(new SimpleAction("QQ"),
-                new DisplayCallback<SimpleResult>(display) {
-                    
-                    @Override
-            protected void handleFailure(Throwable e) {
+	public SimplePresenter(Display display, EventBus eventBus) {
 
-                display.text().setText(e.getMessage());
-            }
-                    
-                    @Override
-            protected void handleSuccess(SimpleResult value) {
+		super(display, eventBus);
+		// TODO Auto-generated constructor stub
+	}
 
-                display.text().setText(value.getMessage());
-                eventBus.fireEvent(new AlertEvent());
+	public SimplePresenter(DispatchAsync dispatcher, Display display,
+			EventBus eventBus) {
 
-            }
-        });
-    }
-    
-    @Override
-    public void refreshDisplay() {
-    
-        // TODO Auto-generated method stub
-        
-    }
+		super(display, eventBus);
+		this.dispatcher = dispatcher;
 
-    @Override
-    public void revealDisplay() {
-    
-        // TODO Auto-generated method stub
-        
-    }
+		bind();
+	}
 
-    @Override
-    protected void onBind() {
+	public void doGO() {
 
-        display.goButton().addClickHandler(new ClickHandler() {
-            
-            @Override
-            public void onClick(ClickEvent event) {
+		dispatcher.execute(new SimpleAction("QQ"),
+				new DisplayCallback<SimpleResult>(display) {
 
-                doGO();
-            }
-            
-        });
-    }
+					@Override
+					protected void handleFailure(Throwable e) {
 
-    @Override
-    protected void onUnbind() {
-    
-        // TODO Auto-generated method stub
-        
-    }
+						display.text().setText(e.getMessage());
+					}
 
-    @Override
-    public Place getPlace() {
-    
-        // TODO Auto-generated method stub
-        return PLACE;
-    }
+					@Override
+					protected void handleSuccess(SimpleResult value) {
 
-    @Override
-    protected void onPlaceRequest(PlaceRequest request) {
-    
-        String param = request.getParameter("name", null);
-        if (param != null) {
-            display.text().setText(param);
-        }
-    }
+						display.text().setText(value.getMessage());
+						eventBus.fireEvent(new AlertEvent());
+
+					}
+				});
+	}
+
+	@Override
+	public void refreshDisplay() {
+
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void revealDisplay() {
+
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	protected void onBind() {
+
+		display.goButton().addClickHandler(new ClickHandler() {
+
+			@Override
+			public void onClick(ClickEvent event) {
+
+				doGO();
+			}
+
+		});
+	}
+
+	@Override
+	protected void onUnbind() {
+
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Place getPlace() {
+
+		// TODO Auto-generated method stub
+		return PLACE;
+	}
+
+	@Override
+	protected void onPlaceRequest(PlaceRequest request) {
+
+		String param = request.getParameter("name", null);
+		if (param != null) {
+			display.text().setText(param);
+		}
+	}
 
 }

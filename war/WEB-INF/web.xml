@@ -7,14 +7,8 @@
     <!-- Servlets -->
 
     <!-- Default page to serve -->
-    <servlet>
-        <servlet-name>QQ</servlet-name>
-        <servlet-class>ru.rs.testcase.phones.server.SimpleServiceImpl</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>QQ</servlet-name>
-        <url-pattern>/phonebook/qq</url-pattern>
-    </servlet-mapping>
+
+
     <welcome-file-list>
         <welcome-file>PhoneBook.html</welcome-file>
     </welcome-file-list>

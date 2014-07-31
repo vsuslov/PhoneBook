@@ -1,26 +1,26 @@
-
 package ru.rs.testcase.phones.client;
 
-import ru.rs.testcase.phones.client.services.ContactsService;
-import ru.rs.testcase.phones.client.services.ContactsServiceAsync;
+import net.customware.gwt.dispatch.client.DispatchAsync;
+import net.customware.gwt.dispatch.client.standard.StandardDispatchAsync;
+import net.customware.gwt.presenter.client.DefaultEventBus;
+import net.customware.gwt.presenter.client.EventBus;
+
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.core.shared.GWT;
-import com.google.gwt.event.shared.HandlerManager;
+import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.user.client.ui.RootPanel;
 
 public class PhoneBook implements EntryPoint {
-    
-    @Override
-    public void onModuleLoad() {
 
-        ContactsServiceAsync service = GWT.create(ContactsService.class);
-        // final DispatchAsync dispatcher =
-        // new StandardDispatchAsync(
-        // new net.customware.gwt.dispatch.client.DefaultExceptionHandler());
-        HandlerManager bus = new HandlerManager(null);
-        AppController controller = new AppController(bus, service);
+	@Override
+	public void onModuleLoad() {
+		EventBus eventBus = new DefaultEventBus();
+		PlaceController placeController = new PlaceController(eventBus);
+		// ContactsServiceAsync service = GWT.create(ContactsService.class);
+		final DispatchAsync dispatcher = new StandardDispatchAsync(
+				new net.customware.gwt.dispatch.client.DefaultExceptionHandler());
 
-        controller.go(RootPanel.get());
-    }
+		AppController controller = new AppController(dispatcher);
 
+		controller.go(RootPanel.get());
+	}
 }

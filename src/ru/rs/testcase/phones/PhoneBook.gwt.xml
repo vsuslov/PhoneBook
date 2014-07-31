@@ -13,9 +13,9 @@
     <!-- the theme of your GWT application by uncommenting -->
     <!-- any one of the following lines. -->
     <inherits name='com.google.gwt.user.theme.clean.Clean' />
-    <inherits name='net.customware.gwt.dispatch.Dispatch'/>
+    <inherits name='net.customware.gwt.dispatch.Dispatch' />
     <inherits name='net.customware.gwt.presenter.Presenter' />
-    <inherits name='com.google.gwt.inject.Inject'/>
+    <inherits name='com.google.gwt.inject.Inject' />
     <!-- <inherits name='com.google.gwt.user.theme.standard.Standard'/> -->
     <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
     <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/> -->
@@ -29,6 +29,8 @@
     <source path='shared' />
     <source path='model' />
 
+    <servlet class="ru.rs.testcase.phones.server.rpc.DispatchServlet"
+        path="/dispatch" />
     <!-- allow Super Dev Mode -->
     <add-linker name="xsiframe" />
 </module>
