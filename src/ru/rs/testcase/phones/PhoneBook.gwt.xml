@@ -29,7 +29,7 @@
     <source path='shared' />
     <source path='model' />
 
-    <servlet class="ru.rs.testcase.phones.server.rpc.DispatchServlet"
+    <servlet class="ru.rs.testcase.phones.server.rpc.DispatcherServlet"
         path="/dispatch" />
     <!-- allow Super Dev Mode -->
     <add-linker name="xsiframe" />

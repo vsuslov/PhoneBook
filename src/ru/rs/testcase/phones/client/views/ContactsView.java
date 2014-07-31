@@ -11,6 +11,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
@@ -29,8 +30,13 @@ public class ContactsView extends Composite implements Display {
     private HorizontalPanel searchPanel;
 
     private List<HasClickHandlers> removeButtons;
+    
+    private Label errors;
 
     public ContactsView() {
+
+        mainPanel = new VerticalPanel();
+        initWidget(mainPanel);
 
         contacts = new FlexTable();
         contacts.setText(0, 0, "Имя");
@@ -47,10 +53,12 @@ public class ContactsView extends Composite implements Display {
         searchPanel.add(searchField);
         searchPanel.add(filterButton);
 
-        mainPanel = new VerticalPanel();
+        errors = new Label();
+        
         mainPanel.add(searchPanel);
         mainPanel.add(contacts);
         mainPanel.add(addButton);
+        mainPanel.add(errors);
 
     }
 
@@ -109,5 +117,25 @@ public class ContactsView extends Composite implements Display {
 
         // TODO Auto-generated method stub
         return searchField;
+    }
+
+    @Override
+    public void startProcessing() {
+    
+        errors.setText("");
+    }
+
+    @Override
+    public void stopProcessing() {
+    
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public Label errors() {
+    
+        // TODO Auto-generated method stub
+        return errors;
     }
 }

@@ -22,7 +22,10 @@ public class SimpleView extends Composite implements Display {
         p = new VerticalPanel();
         initWidget(p);
         simpleButton = new Button("trololo");
+        
+        text = new Label();
         text.setText("Click Me");
+        
         p.add(text);
         p.add(simpleButton);
         

@@ -1,8 +1,8 @@
 ----------------------------------------------------------------
-Thu Jul 31 00:25:22 YEKT 2014:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-0147-8884-fd45-00000423bf88 
-on database directory /Users/dns/git/PhoneBook/phonebook with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
-Loaded from file:/Users/dns/git/PhoneBook/lib/derby.jar
+Fri Aug 01 00:54:09 YEKT 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-0147-8dc5-b12d-00000422f1c8 
+on database directory /Users/dns/git/PhoneBook/phonebook with class loader sun.misc.Launcher$AppClassLoader@6ff3c5b5 
+Loaded from file:/Users/dns/git/PhoneBook/war/WEB-INF/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_05-b13
 user.dir=/Users/dns/git/PhoneBook

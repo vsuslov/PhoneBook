@@ -5,7 +5,14 @@
     version="2.5" xmlns="http://java.sun.com/xml/ns/javaee">
 
     <!-- Servlets -->
-
+<servlet>
+  <servlet-name>dispatchServlet</servlet-name>
+  <servlet-class>ru.rs.testcase.phones.server.rpc.DispatcherServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>dispatchServlet</servlet-name>
+  <url-pattern>/phonebook/dispatch</url-pattern>
+</servlet-mapping>
     <!-- Default page to serve -->
 
 
